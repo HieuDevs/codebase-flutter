@@ -1,0 +1,1 @@
+fvm flutter pub run flutter_native_splash:create -p flutter_native_spash.yml
