@@ -9,7 +9,9 @@
 # packages, and plugins designed to encourage good coding practices.
 include: package:flutter_lints/flutter.yaml
 
-analyzer: 
+analyzer:
+  plugins:
+    - custom_lint
   language:
     strict-casts: true
     strict-inference: true

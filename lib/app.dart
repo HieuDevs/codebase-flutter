@@ -2,6 +2,9 @@ import 'package:codebase/core/common/constants.dart';
 import 'package:codebase/core/extensions/iterable.dart';
 import 'package:codebase/core/l10n/app_localizations/app_localizations.dart';
 import 'package:codebase/core/providers/locale_provider.dart';
+import 'package:codebase/core/providers/theme_provider.dart';
+import 'package:codebase/shared/resources/theme.dart';
+import 'package:codebase/shared/widgets/test_font.dart';
 import 'package:codebase/utils/language_utils.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +17,7 @@ class MyApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final locale = ref.watch(localeProvider);
+    final themeMode = ref.watch(themeProvider);
     return GestureDetector(
       onTap: () {
         FocusScope.of(context).unfocus();
@@ -39,33 +43,10 @@ class MyApp extends ConsumerWidget {
           },
           locale: locale,
           title: AppConstants.appName,
-          theme: ThemeData(colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple), useMaterial3: true),
-          home: const HomePage(),
-        ),
-      ),
-    );
-  }
-}
-
-class HomePage extends ConsumerWidget {
-  const HomePage({super.key});
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(AppLocalizations.of(context).cancel),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                ref.read(localeProvider.notifier).setLocale(LanguageUtils.getLocaleByLanguageCode('vi'));
-              },
-              child: Text(AppLocalizations.of(context).accept),
-            ),
-          ],
+          themeMode: themeMode,
+          theme: AppTheme.lightTheme,
+          darkTheme: AppTheme.darkTheme,
+          home: const TestFont(fontFamily: 'Montserrat'),
         ),
       ),
     );

@@ -2,7 +2,7 @@ import 'package:codebase/core/common/constants.dart';
 import 'package:get_storage/get_storage.dart';
 
 abstract class GetStorageKey {
-  static const kIsDarkMode = 'is_dark_mode';
+  static const kThemeMode = 'theme_mode';
   static const kIsTurnOnSoundEffect = 'is_turn_on_sound_effect';
   static const kIsTurnOnHapticFeedback = 'is_turn_on_haptic_feedback';
   static const kLocale = 'locale';
