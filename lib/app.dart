@@ -6,8 +6,13 @@ import 'package:codebase/core/l10n/app_localizations/app_localizations.dart';
 
 import 'package:codebase/core/providers/locale_provider.dart';
 import 'package:codebase/core/providers/theme_provider.dart';
+import 'package:codebase/core/routes/props.dart';
+import 'package:codebase/core/routes/routes.dart';
+import 'package:codebase/core/routes/app_navigator.dart';
 import 'package:codebase/shared/resources/theme.dart';
-import 'package:codebase/features/home/homepage.dart';
+import 'package:codebase/features/home/home_page.dart';
+import 'package:codebase/features/auth/auth_page.dart';
+import 'package:codebase/features/splash/splash_page.dart';
 import 'package:codebase/utils/language_utils.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/material.dart';
@@ -31,6 +36,26 @@ class MyApp extends StatelessWidget {
         child: Consumer(
           builder: (context, ref, child) {
             return MaterialApp(
+              navigatorKey: AppNavigator.navigatorKey,
+              onUnknownRoute: (settings) => MaterialPageRoute(builder: (context) => SplashPage(props: NoProps())),
+              initialRoute: RouteNames.splash,
+              onGenerateRoute: (settings) {
+                final routeName = settings.name;
+                final props = settings.arguments ?? NoProps();
+                if (props is! RouteProps) {
+                  throw Exception('Invalid props for route: $routeName');
+                }
+                switch (routeName) {
+                  case RouteNames.splash:
+                    return MaterialPageRoute(builder: (context) => SplashPage(props: props));
+                  case RouteNames.home:
+                    return MaterialPageRoute(builder: (context) => HomePage(props: props));
+                  case RouteNames.auth:
+                    return MaterialPageRoute(builder: (context) => AuthPage(props: props));
+                  default:
+                    return MaterialPageRoute(builder: (context) => SplashPage(props: props));
+                }
+              },
               supportedLocales: AppLocalizations.supportedLocales,
               localizationsDelegates: const [
                 AppLocalizations.delegate,
@@ -49,7 +74,6 @@ class MyApp extends StatelessWidget {
               title: AppConstants.appName,
               theme: AppTheme.lightTheme,
               darkTheme: AppTheme.darkTheme,
-              home: const HomePage(),
             );
           },
         ),

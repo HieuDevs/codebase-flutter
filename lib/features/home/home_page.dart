@@ -1,11 +1,13 @@
+import 'package:codebase/core/routes/props.dart';
 import 'package:codebase/shared/widgets/test_font.dart';
 import 'package:codebase/shared/widgets/test_logger.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/experimental/mutation.dart';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class HomePage extends ConsumerWidget {
-  const HomePage({super.key});
+  final RouteProps props;
+  const HomePage({super.key, required this.props});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
