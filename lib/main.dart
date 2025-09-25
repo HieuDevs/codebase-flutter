@@ -14,6 +14,6 @@ void main() async {
     GetStorage.init(AppConstants.appGetStorage),
     IsolateBackgroundSound.init(),
     IsolateBackgroundVibration.init(),
-    entry(app: const MyApp()),
   ]);
+  entry(app: const MyApp());
 }

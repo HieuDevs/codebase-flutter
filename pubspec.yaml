@@ -49,6 +49,10 @@ dependencies:
   # Flutter package for tracking user privacy
   app_tracking_transparency: ^2.0.6+1
 
+  # Logger packages
+  logger: ^2.6.1
+  path_provider: ^2.1.5
+
   # Flutter package for playing media in background mode
   media_kit: ^1.2.0
   media_kit_libs_audio: ^1.0.6
@@ -76,6 +80,7 @@ dependencies:
 
   # Flutter package for state management
   flutter_riverpod: ^3.0.0
+
 
   # Flutter package for making HTTP requests
   dio: ^5.9.0

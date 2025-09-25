@@ -7,7 +7,7 @@ final themeProvider = NotifierProvider<ThemeNotifier, ThemeMode>(ThemeNotifier.n
 class ThemeNotifier extends Notifier<ThemeMode> {
   @override
   ThemeMode build() {
-    final themeMode = AppGetStorage.instance.appStorage.read<String>(GetStorageKey.kThemeMode) ?? 'system ';
+    final themeMode = AppGetStorage.instance.appStorage.read<String>(GetStorageKey.kThemeMode);
     return themeMode == 'dark'
         ? ThemeMode.dark
         : themeMode == 'light'
@@ -18,21 +18,6 @@ class ThemeNotifier extends Notifier<ThemeMode> {
   void setThemeMode(ThemeMode mode) {
     state = mode;
     AppGetStorage.instance.appStorage.write(GetStorageKey.kThemeMode, mode.name);
-  }
-
-  void toggleTheme() {
-    switch (state) {
-      case ThemeMode.light:
-        state = ThemeMode.dark;
-        break;
-      case ThemeMode.dark:
-        state = ThemeMode.system;
-        break;
-      case ThemeMode.system:
-        state = ThemeMode.light;
-        break;
-    }
-    AppGetStorage.instance.appStorage.write(GetStorageKey.kThemeMode, state.name);
   }
 
   bool get isDarkMode {

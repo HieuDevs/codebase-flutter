@@ -19,6 +19,31 @@ class TestFont extends ConsumerWidget {
             Text('Kiểm Tra Font Chữ $fontFamily', style: Theme.of(context).textTheme.headlineMedium),
             const SizedBox(height: 24),
 
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    ref.read(themeProvider.notifier).setThemeMode(ThemeMode.light);
+                  },
+                  child: const Text('Light'),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    ref.read(themeProvider.notifier).setThemeMode(ThemeMode.dark);
+                  },
+                  child: const Text('Dark'),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    ref.read(themeProvider.notifier).setThemeMode(ThemeMode.system);
+                  },
+                  child: const Text('System'),
+                ),
+              ],
+            ),
+            const SizedBox(height: 24),
+
             Text('Kiểu Hiển Thị', style: Theme.of(context).textTheme.titleLarge),
             const SizedBox(height: 12),
             Text('Hiển Thị Lớn - Cực Đậm', style: Theme.of(context).textTheme.displayLarge),
@@ -112,30 +137,6 @@ class TestFont extends ConsumerWidget {
 
             Text('Chức Năng', style: Theme.of(context).textTheme.titleLarge),
             const SizedBox(height: 12),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ElevatedButton(
-                  onPressed: () {
-                    ref.read(themeProvider.notifier).setThemeMode(ThemeMode.light);
-                  },
-                  child: const Text('Light'),
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    ref.read(themeProvider.notifier).setThemeMode(ThemeMode.dark);
-                  },
-                  child: const Text('Dark'),
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    ref.read(themeProvider.notifier).setThemeMode(ThemeMode.system);
-                  },
-                  child: const Text('System'),
-                ),
-              ],
-            ),
-            const SizedBox(height: 24),
 
             Text('Văn Bản Mẫu', style: Theme.of(context).textTheme.titleLarge),
             const SizedBox(height: 12),
