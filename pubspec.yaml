@@ -74,6 +74,9 @@ dependencies:
   # Flutter package for dependency injection
   get_it: ^8.2.0
 
+  # Flutter package for state management
+  flutter_riverpod: ^3.0.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

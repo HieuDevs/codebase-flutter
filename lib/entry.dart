@@ -7,16 +7,19 @@ import 'package:codebase/core/di/injection_container.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 Future<void> entry({required Widget app}) async {
   await Future.wait([_initialize(), setupDI(), _requestTrackingTransparencyPermission()]);
-  runApp(app);
-  FlutterError.onError = (errorDetails) {
-    debugPrint('Error: ${errorDetails.exceptionAsString()}');
-  };
-  ErrorWidget.builder = (errorDetails) {
-    return Center(child: Text('Error: ${errorDetails.exceptionAsString()}'));
-  };
+  runApp(ProviderScope(child: app));
+  // FlutterError.onError = (errorDetails) {
+  //   debugPrint('Error: ${errorDetails.exceptionAsString()}');
+  // };
+  // ErrorWidget.builder = (errorDetails) {
+  //   return MaterialApp(
+  //     home: Scaffold(body: Center(child: Text('Error: ${errorDetails.exceptionAsString()}'))),
+  //   );
+  // };
 }
 
 Future<void> _requestTrackingTransparencyPermission() async {
