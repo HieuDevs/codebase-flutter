@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:app_tracking_transparency/app_tracking_transparency.dart';
+import 'package:codebase/core/api/dio_service.dart';
 import 'package:codebase/core/common/config.dart';
 import 'package:codebase/core/di/injection_container.dart';
 import 'package:codebase/core/logger/app_logger.dart';
@@ -14,7 +15,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 Future<void> entry({required Widget app}) async {
   await Future.wait([_initialize(), setupDI(), _requestTrackingTransparencyPermission()]);
-
+  getIt.get<DioService>().initialize(baseUrl: Config.baseUrl, enableCertificatePinning: false);
   runApp(ProviderScope(child: app));
   // FlutterError.onError = (errorDetails) {
   //   debugPrint('Error: ${errorDetails.exceptionAsString()}');

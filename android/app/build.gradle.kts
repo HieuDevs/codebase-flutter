@@ -5,6 +5,23 @@ plugins {
     id("dev.flutter.flutter-gradle-plugin")
 }
 
+val localProperties = Properties()
+val localPropertiesFile = rootProject.file("local.properties")
+if (localPropertiesFile.exists()) {
+    FileInputStream(localPropertiesFile).use { inputStream ->
+        localProperties.load(inputStream)
+    }
+}
+
+fun getLocalProperty(key: String, defaultValue: String = ""): String {
+    return localProperties.getProperty(key) ?: defaultValue
+}
+
+val keystorePropertiesFile = rootProject.file("key.properties")
+val keystoreProperties = Properties().apply {
+    load(FileInputStream(keystorePropertiesFile))
+}
+
 android {
     namespace = "com.example.codebase"
     compileSdk = flutter.compileSdkVersion
@@ -24,17 +41,35 @@ android {
         applicationId = "com.example.codebase"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
-        minSdk = flutter.minSdkVersion
+        minSdk = getLocalProperty("flutter.minSdkVersion", "24").toInt()
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
     }
 
+    /* ---- Signing ---- */
+    signingConfigs {
+        create("release") {
+            storeFile = keystoreProperties["storeFile"]?.let { file(it) }
+            storePassword = keystoreProperties["storePassword"].toString()
+            keyAlias = keystoreProperties["keyAlias"].toString()
+            keyPassword = keystoreProperties["keyPassword"].toString()
+        }
+    }
+
+    /* ---- Build types ---- */
     buildTypes {
-        release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig = signingConfigs.getByName("debug")
+        // Release build type
+        getByName("release") {
+            isMinifyEnabled     = true
+            isShrinkResources   = true
+            isDebuggable        = false
+            signingConfig       = signingConfigs.getByName("release")
+        }
+        // Debug build type
+        getByName("debug") {
+            // Use default signingConfig debug
+            isDebuggable = true
         }
     }
 }

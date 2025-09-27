@@ -32,6 +32,7 @@ class HomePage extends ConsumerWidget {
               },
               child: const Text('Test Logger'),
             ),
+            const SizedBox(height: 16),
           ],
         ),
       ),

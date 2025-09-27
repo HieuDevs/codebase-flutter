@@ -1,0 +1,111 @@
+---
+description: Localization rules for internationalization and user-facing text management
+alwaysApply: false
+---
+# Localization Rules
+
+## 1. User-Facing Text Rule
+- **MUST** create all user-facing text in `@arb/` files for localization
+- **NEVER** use hardcoded strings for user-facing text without localization
+- **ALWAYS** ask for user acceptance before creating new localization entries
+- **REQUIRED** to add entries to both `intl_en.arb` and `intl_vi.arb` files
+
+## 2. Localization File Structure
+- **MUST** maintain consistent structure across all ARB files
+- **REQUIRED** to include `@@locale` metadata in each file
+- **MUST** use descriptive keys for localization entries
+- **SHOULD** group related keys with consistent naming patterns
+
+## 3. Translation Requirements
+- **MUST** provide translations for all supported languages
+- **SHOULD** ensure translations are culturally appropriate
+- **MUST** maintain consistency in tone and style across languages
+- **REQUIRED** to test translations in context
+
+## 4. New Language Addition Rule
+- **MUST** automatically create new ARB file when adding a new language
+- **REQUIRED** to translate all existing entries from English to the new language
+- **MUST** use the format `intl_[language_code].arb` for new language files
+- **SHOULD** include `@@locale` metadata with the correct language code
+- **REQUIRED** to update `l10n.yaml` configuration to include the new language
+- **MUST** run `fvm flutter pub get` after adding new language support
+
+## 5. Code Integration
+- **MUST** use generated localization keys in the code
+- **SHOULD** import localization files when using localized text
+- **MUST** handle missing translations gracefully
+- **REQUIRED** to test localization in different language settings
+
+## 6. Workflow Requirements
+- **MUST** run `fvm flutter pub get` after adding new localization entries
+- **ALWAYS** ask for user approval before creating localization entries
+- **REQUIRED** to regenerate localization files after changes
+- **SHOULD** verify localization works correctly after updates
+
+## Examples
+
+### ✅ Correct ARB File Structure
+```json
+// intl_en.arb
+{
+    "@@locale": "en",
+    "welcomeMessage": "Welcome to the app",
+    "loginButton": "Login",
+    "errorNetwork": "Network error occurred"
+}
+
+// intl_vi.arb
+{
+    "@@locale": "vi", 
+    "welcomeMessage": "Chào mừng đến với ứng dụng",
+    "loginButton": "Đăng nhập",
+    "errorNetwork": "Lỗi mạng xảy ra"
+}
+
+// intl_es.arb (example for Spanish)
+{
+    "@@locale": "es",
+    "welcomeMessage": "Bienvenido a la aplicación",
+    "loginButton": "Iniciar sesión",
+    "errorNetwork": "Error de red ocurrido"
+}
+```
+
+### ✅ Correct Usage in Code
+```dart
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+Text(AppLocalizations.of(context)!.welcomeMessage)
+```
+
+### ❌ Incorrect Usage
+```dart
+// Don't use hardcoded strings for user-facing text
+Text('Welcome to the app')
+```
+
+## Localization Workflow
+1. **Identify** user-facing text that needs localization
+2. **Ask** user for approval to create localization entries
+3. **Add** entries to both `intl_en.arb` and `intl_vi.arb` files
+4. **Run** `fvm flutter pub get` to regenerate localization files
+5. **Use** generated localization keys in the code
+6. **Test** localization in different language settings
+
+## New Language Addition Workflow
+1. **Ask** user for approval to add new language support
+2. **Create** new ARB file with format `intl_[language_code].arb`
+3. **Copy** all existing keys from `intl_en.arb` to new file
+4. **Translate** all values to the new language
+5. **Update** `l10n.yaml` configuration to include new language
+6. **Run** `fvm flutter pub get` to regenerate localization files
+7. **Test** new language support in the app
+
+## Enforcement
+- **ALWAYS** ask for user approval before creating localization entries
+- **MUST** run `fvm flutter pub get` after localization changes
+- **REQUIRED** to maintain all supported language translations
+- **SHOULD** test localization functionality regularly
+- **MUST** follow consistent naming conventions for localization keys
+- **REQUIRED** to automatically create and translate new language files
+- **MUST** update `l10n.yaml` when adding new languages

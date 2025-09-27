@@ -1,0 +1,94 @@
+---
+description: Resource usage rules for consistent codebase management
+globs:
+alwaysApply: true
+---
+
+# Resource Usage Rules
+
+## 1. Size Values Rule
+- **MUST** use `AppValues` from `@values.dart` for all widget dimensions, sizes, and numeric values
+- **NEVER** use hardcoded numeric values for:
+  - Widget width/height
+  - Border radius
+  - Font sizes
+  - Stroke widths
+  - Blur radius
+  - Offset values
+- **Example**: Use `AppValues.s24` instead of `24.0` or `24`
+
+## 2. Asset Paths Rule
+- **MUST** use `AppAssets` from `@assets.dart` for all asset paths
+- **NEVER** use hardcoded string paths for:
+  - Images
+  - Icons
+  - Fonts
+  - Audio files
+  - Any other assets
+- **Example**: Use `AppAssets.imageLogo` instead of `'assets/media/image/app_icon.png'`
+
+## 3. Gap/Spacing Rule
+- **MUST** use `AppGap` from `@gap.dart` for all spacing between widgets
+- **NEVER** use hardcoded values for:
+  - SizedBox height/width
+  - Padding values
+  - Margin values
+  - Spacing between widgets
+- **Example**: Use `AppGap.s16` instead of `const SizedBox(height: 16)`
+
+## 4. Strings Rule
+- **MUST** evaluate if strings should be defined in `@strings.dart`
+- **SHOULD** define in `AppStrings` if the string is:
+  - User-facing text
+  - Error messages
+  - API responses
+  - Reusable across multiple screens
+- **MAY** use hardcoded strings only for:
+  - One-time use labels
+  - Debug messages
+  - Very specific UI text that won't be reused
+
+
+## Import Requirements
+- **MUST** import the corresponding resource file when using its constants
+- **MUST** use the full path: `package:codebase/shared/resources/[filename].dart`
+
+## Examples
+
+### ✅ Correct Usage
+```dart
+import 'package:codebase/shared/resources/values.dart';
+import 'package:codebase/shared/resources/gap.dart';
+import 'package:codebase/shared/resources/assets.dart';
+
+Container(
+  width: AppValues.s100,
+  height: AppValues.s100,
+  decoration: BoxDecoration(
+    borderRadius: BorderRadius.circular(AppValues.s12),
+  ),
+  child: Image.asset(AppAssets.imageLogo),
+)
+
+const SizedBox(height: AppGap.s16),
+```
+
+### ❌ Incorrect Usage
+```dart
+Container(
+  width: 100,
+  height: 100,
+  decoration: BoxDecoration(
+    borderRadius: BorderRadius.circular(12),
+  ),
+  child: Image.asset('assets/media/image/app_icon.png'),
+)
+
+const SizedBox(height: 16),
+```
+
+## Enforcement
+- Always check for hardcoded values before committing
+- Use IDE search to find hardcoded numbers and strings
+- Refactor existing code to follow these rules
+- Add new constants to resource files as needed

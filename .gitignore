@@ -49,3 +49,5 @@ app.*.map.json
 
 # Environment variables
 production.env
+android/upload-keystore.jks
+android/key.properties

@@ -9,4 +9,6 @@ class Config {
     await dotenv.load(fileName: fileName);
     debugPrint('Env Mode: ${dotenv.env['MODE']}');
   }
+
+  static String get baseUrl => dotenv.env['BASE_URL'] ?? '';
 }
