@@ -1,6 +1,6 @@
 {
-    "name": "codebase",
-    "short_name": "codebase",
+    "name": "lua",
+    "short_name": "lua",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

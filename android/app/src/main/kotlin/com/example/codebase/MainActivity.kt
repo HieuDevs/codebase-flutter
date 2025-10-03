@@ -1,4 +1,4 @@
-package com.example.codebase
+package com.example.lua
 
 import io.flutter.embedding.android.FlutterActivity
 

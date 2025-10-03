@@ -1,6 +1,6 @@
 import 'dart:isolate';
 
-import 'package:codebase/core/storage/get_storage_key.dart';
+import 'package:lua/core/storage/get_storage_key.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:media_kit/media_kit.dart';

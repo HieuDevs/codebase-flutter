@@ -2,7 +2,7 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:codebase/shared/resources/strings.dart';
+import 'package:lua/shared/resources/strings.dart';
 
 class ApiResponse<T> {
   final bool success;

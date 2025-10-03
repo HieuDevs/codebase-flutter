@@ -1,6 +1,6 @@
-import 'package:codebase/core/extensions/context.dart';
-import 'package:codebase/core/logger/logger.dart';
-import 'package:codebase/core/logger/app_logger.dart';
+import 'package:lua/core/extensions/context.dart';
+import 'package:lua/core/logger/logger.dart';
+import 'package:lua/core/logger/app_logger.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

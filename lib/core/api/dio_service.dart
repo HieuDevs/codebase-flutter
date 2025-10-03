@@ -1,8 +1,8 @@
 import 'dart:io';
 
-import 'package:codebase/core/routes/app_navigator.dart';
-import 'package:codebase/core/routes/routes.dart';
-import 'package:codebase/shared/resources/strings.dart';
+import 'package:lua/core/routes/app_navigator.dart';
+import 'package:lua/core/routes/routes.dart';
+import 'package:lua/shared/resources/strings.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';

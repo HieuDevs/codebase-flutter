@@ -3,7 +3,7 @@
 import 'dart:io';
 import 'dart:math';
 
-import 'package:codebase/core/api/api_response.dart';
+import 'package:lua/core/api/api_response.dart';
 import 'package:dio/dio.dart';
 
 class RetryConfig {

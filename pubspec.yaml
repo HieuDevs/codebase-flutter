@@ -1,5 +1,5 @@
-name: codebase
-description: "A Codebase for Flutter"
+name: lua
+description: "A Lua for Flutter"
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -79,8 +79,10 @@ dependencies:
   get_it: ^8.2.0
 
   # Flutter package for state management
-  flutter_riverpod: ^3.0.0
+  flutter_riverpod: ^3.0.1
 
+  # Flutter package for hooks with riverpod
+  hooks_riverpod: ^3.0.1
 
   # Flutter package for making HTTP requests
   dio: ^5.9.0
@@ -90,6 +92,9 @@ dependencies:
 
   # Flutter package for making hooks
   flutter_hooks: ^0.21.3+1
+
+  # Flutter package for rendering SVG files
+  flutter_svg: ^2.2.1
 dependency_overrides:
   media_kit:
     git:

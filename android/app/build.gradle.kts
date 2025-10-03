@@ -23,7 +23,7 @@ val keystoreProperties = Properties().apply {
 }
 
 android {
-    namespace = "com.example.codebase"
+    namespace = "com.hieubui.lua"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -38,7 +38,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId = "com.example.codebase"
+        applicationId = "com.hieubui.lua"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = getLocalProperty("flutter.minSdkVersion", "24").toInt()

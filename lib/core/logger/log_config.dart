@@ -1,4 +1,4 @@
-import 'package:codebase/core/logger/log_level.dart';
+import 'package:lua/core/logger/log_level.dart';
 
 class LogConfig {
   const LogConfig({

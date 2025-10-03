@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:codebase/core/routes/routes.dart';
-import 'package:codebase/core/routes/props.dart';
-import 'package:codebase/features/splash/splash_page.dart';
-import 'package:codebase/features/home/home_page.dart';
-import 'package:codebase/features/auth/auth_page.dart';
+import 'package:lua/core/routes/routes.dart';
+import 'package:lua/core/routes/props.dart';
+import 'package:lua/features/splash/splash_page.dart';
+import 'package:lua/features/home/presentation/home_page.dart';
+import 'package:lua/features/auth/auth_page.dart';
 
 enum NavigationTransition { slide, fade, scale, slideUp, slideDown, slideLeft, slideRight }
 
@@ -22,7 +22,13 @@ class AppNavigator {
     bool fullscreenDialog = false,
   }) {
     return currentState!.push<T>(
-      _createRoute(routeName, props: props, transition: transition, duration: duration, fullscreenDialog: fullscreenDialog),
+      _createRoute(
+        routeName,
+        props: props,
+        transition: transition,
+        duration: duration,
+        fullscreenDialog: fullscreenDialog,
+      ),
     );
   }
 
@@ -86,7 +92,12 @@ class AppNavigator {
     Duration duration = const Duration(milliseconds: 300),
     TO? result,
   }) {
-    return pushReplacement<T, TO>(routeName, props: props, transition: transition, duration: duration);
+    return pushReplacement<T, TO>(
+      routeName,
+      props: props,
+      transition: transition,
+      duration: duration,
+    );
   }
 
   static Route<T> _createRoute<T>(
@@ -184,7 +195,10 @@ class AppNavigator {
 
       case NavigationTransition.scale:
         return ScaleTransition(
-          scale: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(parent: animation, curve: Curves.elasticOut)),
+          scale: Tween<double>(
+            begin: 0.0,
+            end: 1.0,
+          ).animate(CurvedAnimation(parent: animation, curve: Curves.elasticOut)),
           child: FadeTransition(opacity: animation, child: child),
         );
     }
@@ -210,7 +224,11 @@ class CustomPageRoute<T> extends PageRoute<T> {
   String? get barrierLabel => null;
 
   @override
-  Widget buildPage(BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation) {
+  Widget buildPage(
+    BuildContext context,
+    Animation<double> animation,
+    Animation<double> secondaryAnimation,
+  ) {
     return child;
   }
 
@@ -221,7 +239,12 @@ class CustomPageRoute<T> extends PageRoute<T> {
   Duration get transitionDuration => duration;
 
   @override
-  Widget buildTransitions(BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation, Widget child) {
+  Widget buildTransitions(
+    BuildContext context,
+    Animation<double> animation,
+    Animation<double> secondaryAnimation,
+    Widget child,
+  ) {
     return AppNavigator._buildTransition(context, animation, secondaryAnimation, child, transition);
   }
 }

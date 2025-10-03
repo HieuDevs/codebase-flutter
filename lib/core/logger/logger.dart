@@ -1,4 +1,4 @@
-import 'package:codebase/core/logger/app_logger.dart';
+import 'package:lua/core/logger/app_logger.dart';
 
 class Logger {
   Logger._(this._className);

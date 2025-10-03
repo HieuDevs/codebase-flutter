@@ -1,0 +1,80 @@
+# FVM (Flutter Version Management) Usage Rules
+
+## 1. FVM Installation Requirement
+- **MUST** have FVM installed globally via:
+  ```bash
+  dart pub global activate fvm
+  ```
+
+## 2. Project Setup Rules
+- **MUST** use FVM to pin Flutter version for the project
+- **MUST** have `.fvm/fvm_config.json` committed to version control
+- **MUST** add `.fvm/flutter_sdk` to `.gitignore`
+
+## 3. Command Usage Rules
+- **MUST** prefix all Flutter and Dart commands with `fvm`
+- **NEVER** use direct `flutter` or `dart` commands
+
+### ✅ Correct Usage
+```bash
+fvm flutter run
+fvm flutter build
+fvm flutter pub get
+fvm flutter clean
+fvm dart format .
+fvm dart fix --apply
+```
+
+### ❌ Incorrect Usage
+```bash
+flutter run
+flutter build
+flutter pub get
+flutter clean
+dart format .
+dart fix --apply
+```
+
+## 4. CI/CD Integration
+- **MUST** use FVM in CI/CD pipelines
+- **MUST** install FVM as first step in CI/CD workflows
+- **MUST** use `fvm install` to set up Flutter version
+- **MUST** use `fvm flutter` for all Flutter commands
+
+## 5. IDE Integration
+- **MUST** configure IDE to use FVM Flutter SDK path
+- **MUST** set Flutter SDK path to: `.fvm/flutter_sdk`
+- **SHOULD** verify IDE is using correct Flutter version
+
+### VS Code Settings
+```json
+{
+  "dart.flutterSdkPath": ".fvm/flutter_sdk"
+}
+```
+
+### Android Studio / IntelliJ IDEA
+- Languages & Frameworks > Flutter
+- Set Flutter SDK path to: `.fvm/flutter_sdk`
+
+## 6. Version Management
+- **MUST** use `fvm list` to view installed versions
+- **MUST** use `fvm use <version>` to switch versions
+- **MUST** update `.fvm/fvm_config.json` when changing versions
+- **SHOULD** document Flutter version changes in commit messages
+
+## 7. Team Synchronization
+- **MUST** run `fvm install` after pulling new changes
+- **MUST** notify team when updating Flutter version
+- **SHOULD** document Flutter version requirements in README.md
+
+## 8. Troubleshooting
+- **MUST** run `fvm doctor` to verify setup
+- **MUST** use `fvm flutter clean` for clean builds
+- **SHOULD** check FVM installation with `fvm --version`
+
+## Enforcement
+- Configure pre-commit hooks to verify FVM usage
+- Set up CI/CD checks for FVM compliance
+- Regular audits of command usage in scripts
+- Team code review process to verify FVM usage

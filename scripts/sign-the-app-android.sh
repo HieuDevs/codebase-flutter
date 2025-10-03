@@ -11,15 +11,15 @@ case $choice in
         keytool -genkey -v -keystore ./android/upload-keystore.jks \
                 -storetype JKS -keyalg RSA -keysize 2048 -validity 10000 \
                 -alias upload \
-                -storepass codebase -keypass codebase \
-                -dname "CN=Codebase App, OU=Development, O=Codebase Organization, L=City, ST=State, C=US"
+                -storepass luaandroid -keypass luaandroid \
+                -dname "CN=Lua App, OU=Development, O=Luapp Organization, L=City, ST=State, C=US"
         ;;
     2)
         echo "Running keytool for Mac/Linux..."
         keytool -genkey -v -keystore ./android/upload-keystore.jks -keyalg RSA \
                 -keysize 2048 -validity 10000 -alias upload \
-                -storepass codebase -keypass codebase \
-                -dname "CN=Codebase App, OU=Development, O=Codebase Organization, L=City, ST=State, C=US"
+                -storepass luaandroid -keypass luaandroid \
+                -dname "CN=Lua App, OU=Development, O=Lua Organization, L=City, ST=State, C=US"
         ;;
     *)
         echo "Invalid choice. Please run the script again and choose 1 or 2."

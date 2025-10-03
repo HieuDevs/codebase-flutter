@@ -1,5 +1,7 @@
 {
     "@@locale": "en",
     "accept": "Accept",
-    "cancel": "Cancel"
+    "cancel": "Cancel",
+    "startPractice": "Start Practice",
+    "reviewLesson": "Review Lesson"
 }

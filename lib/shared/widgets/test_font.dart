@@ -1,4 +1,4 @@
-import 'package:codebase/core/providers/theme_provider.dart';
+import 'package:lua/core/providers/theme_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/material.dart';
 

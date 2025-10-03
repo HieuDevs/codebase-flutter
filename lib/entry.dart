@@ -2,12 +2,12 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:app_tracking_transparency/app_tracking_transparency.dart';
-import 'package:codebase/core/api/dio_service.dart';
-import 'package:codebase/core/common/config.dart';
-import 'package:codebase/core/di/injection_container.dart';
-import 'package:codebase/core/logger/app_logger.dart';
-import 'package:codebase/core/logger/log_config.dart';
-import 'package:codebase/core/logger/log_level.dart';
+import 'package:lua/core/api/dio_service.dart';
+import 'package:lua/core/common/config.dart';
+import 'package:lua/core/di/injection_container.dart';
+import 'package:lua/core/logger/app_logger.dart';
+import 'package:lua/core/logger/log_config.dart';
+import 'package:lua/core/logger/log_level.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';

@@ -1,9 +1,9 @@
 import 'dart:io';
 import 'package:path_provider/path_provider.dart';
-import 'package:codebase/core/logger/log_config.dart';
+import 'package:lua/core/logger/log_config.dart';
 
-import 'package:codebase/core/logger/log_level.dart';
-import 'package:codebase/core/logger/log_formatter.dart';
+import 'package:lua/core/logger/log_level.dart';
+import 'package:lua/core/logger/log_formatter.dart';
 
 class LogFileWriter {
   LogFileWriter({required this.config, required this.formatter});

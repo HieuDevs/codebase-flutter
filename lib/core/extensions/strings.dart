@@ -1,7 +1,7 @@
 import 'dart:math' as math;
 
-import 'package:codebase/shared/models/tagged_text.dart';
-import 'package:codebase/utils/diacritics_utils.dart';
+import 'package:lua/shared/models/tagged_text.dart';
+import 'package:lua/utils/diacritics_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 

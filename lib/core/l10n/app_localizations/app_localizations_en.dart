@@ -13,4 +13,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get cancel => 'Cancel';
+
+  @override
+  String get startPractice => 'Start Practice';
+
+  @override
+  String get reviewLesson => 'Review Lesson';
 }

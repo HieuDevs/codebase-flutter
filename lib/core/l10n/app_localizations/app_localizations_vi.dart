@@ -13,4 +13,10 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get cancel => 'Hủy';
+
+  @override
+  String get startPractice => 'Bắt Đầu Luyện Tập';
+
+  @override
+  String get reviewLesson => 'Ôn Lại Bài Học';
 }

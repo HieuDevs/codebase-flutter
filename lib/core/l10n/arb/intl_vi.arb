@@ -1,5 +1,7 @@
 {
     "@@locale": "vi",
     "accept": "Đồng ý",
-    "cancel": "Hủy"
+    "cancel": "Hủy",
+    "startPractice": "Bắt Đầu Luyện Tập",
+    "reviewLesson": "Ôn Lại Bài Học"
 }

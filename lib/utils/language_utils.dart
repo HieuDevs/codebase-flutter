@@ -1,6 +1,6 @@
 import 'dart:io';
-import 'package:codebase/core/l10n/app_localizations/app_localizations.dart';
-import 'package:codebase/core/storage/get_storage_key.dart';
+import 'package:lua/core/l10n/app_localizations/app_localizations.dart';
+import 'package:lua/core/storage/get_storage_key.dart';
 import 'package:flutter/material.dart';
 
 class LanguageUtils {

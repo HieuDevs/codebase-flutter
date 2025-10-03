@@ -1,4 +1,4 @@
-import 'package:codebase/core/common/constants.dart';
+import 'package:lua/core/common/constants.dart';
 import 'package:get_storage/get_storage.dart';
 
 abstract class GetStorageKey {

@@ -1,5 +1,5 @@
 ---
-description: Resource usage rules for consistent codebase management
+description: Resource usage rules for consistent lua management
 globs:
 alwaysApply: true
 ---
@@ -51,15 +51,15 @@ alwaysApply: true
 
 ## Import Requirements
 - **MUST** import the corresponding resource file when using its constants
-- **MUST** use the full path: `package:codebase/shared/resources/[filename].dart`
+- **MUST** use the full path: `package:lua/shared/resources/[filename].dart`
 
 ## Examples
 
 ### ✅ Correct Usage
 ```dart
-import 'package:codebase/shared/resources/values.dart';
-import 'package:codebase/shared/resources/gap.dart';
-import 'package:codebase/shared/resources/assets.dart';
+import 'package:lua/shared/resources/values.dart';
+import 'package:lua/shared/resources/gap.dart';
+import 'package:lua/shared/resources/assets.dart';
 
 Container(
   width: AppValues.s100,

@@ -1,19 +1,19 @@
-import 'package:codebase/core/common/constants.dart';
+import 'package:lua/core/common/constants.dart';
 
-import 'package:codebase/core/extensions/iterable.dart';
+import 'package:lua/core/extensions/iterable.dart';
 
-import 'package:codebase/core/l10n/app_localizations/app_localizations.dart';
+import 'package:lua/core/l10n/app_localizations/app_localizations.dart';
 
-import 'package:codebase/core/providers/locale_provider.dart';
-import 'package:codebase/core/providers/theme_provider.dart';
-import 'package:codebase/core/routes/props.dart';
-import 'package:codebase/core/routes/routes.dart';
-import 'package:codebase/core/routes/app_navigator.dart';
-import 'package:codebase/shared/resources/theme.dart';
-import 'package:codebase/features/home/home_page.dart';
-import 'package:codebase/features/auth/auth_page.dart';
-import 'package:codebase/features/splash/splash_page.dart';
-import 'package:codebase/utils/language_utils.dart';
+import 'package:lua/core/providers/locale_provider.dart';
+import 'package:lua/core/providers/theme_provider.dart';
+import 'package:lua/core/routes/props.dart';
+import 'package:lua/core/routes/routes.dart';
+import 'package:lua/core/routes/app_navigator.dart';
+import 'package:lua/shared/resources/theme.dart';
+import 'package:lua/features/home/presentation/home_page.dart';
+import 'package:lua/features/auth/auth_page.dart';
+import 'package:lua/features/splash/splash_page.dart';
+import 'package:lua/utils/language_utils.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -37,7 +37,8 @@ class MyApp extends StatelessWidget {
           builder: (context, ref, child) {
             return MaterialApp(
               navigatorKey: AppNavigator.navigatorKey,
-              onUnknownRoute: (settings) => MaterialPageRoute(builder: (context) => SplashPage(props: NoProps())),
+              onUnknownRoute: (settings) =>
+                  MaterialPageRoute(builder: (context) => SplashPage(props: NoProps())),
               initialRoute: RouteNames.splash,
               onGenerateRoute: (settings) {
                 final routeName = settings.name;
@@ -67,7 +68,10 @@ class MyApp extends StatelessWidget {
                   supportedLocales.contains(locale) ? locale : LanguageUtils.getDefaultLocale(),
               localeListResolutionCallback: (locales, supportedLocales) {
                 if (locales.isNullOrEmpty()) return LanguageUtils.getDefaultLocale();
-                return locales!.firstWhere(supportedLocales.contains, orElse: () => LanguageUtils.getDefaultLocale());
+                return locales!.firstWhere(
+                  supportedLocales.contains,
+                  orElse: () => LanguageUtils.getDefaultLocale(),
+                );
               },
               locale: ref.watch(localeProvider),
               themeMode: ref.watch(themeProvider),

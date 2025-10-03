@@ -99,4 +99,6 @@ abstract interface class AppValues {
   static const double s98 = 98.0;
   static const double s99 = 99.0;
   static const double s100 = 100.0;
+  static const double s120 = 120.0;
+  static const double s140 = 140.0;
 }

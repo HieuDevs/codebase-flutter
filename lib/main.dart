@@ -1,8 +1,8 @@
-import 'package:codebase/app.dart';
-import 'package:codebase/core/isolates/isolate_background_sound.dart';
-import 'package:codebase/core/isolates/isolate_vibration.dart';
-import 'package:codebase/entry.dart';
-import 'package:codebase/core/common/constants.dart';
+import 'package:lua/app.dart';
+import 'package:lua/core/isolates/isolate_background_sound.dart';
+import 'package:lua/core/isolates/isolate_vibration.dart';
+import 'package:lua/entry.dart';
+import 'package:lua/core/common/constants.dart';
 import 'package:flutter_isolate_worker/isolate_worker.dart';
 import 'package:get_storage/get_storage.dart';
 

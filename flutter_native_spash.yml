@@ -1,17 +1,17 @@
 # flutter_native_splash-production.yaml
 flutter_native_splash:
   color: "#ffffff"
-  image: assets/media/image/the_pocket_logo_black.png
+  image: assets/media/image/app_icon.png
   # branding: assets/branding-production.png
   branding_bottom_padding: 24
   color_dark: "#F9F9F9"
-  image_dark: assets/media/image/the_pocket_logo_black.png
+  image_dark: assets/media/image/app_icon.png
   # branding_dark: assets/branding-production.png
 
   android_12:
-    # image: art/images/the_pocket_logo_black.png
+    # image: art/images/app_icon.png
     icon_background_color: "#ffffff"
-    # image_dark: art/images/the_pocket_logo_black.png
+    # image_dark: art/images/app_icon.png
     icon_background_color_dark: "#F9F9F9"
 
   web: false

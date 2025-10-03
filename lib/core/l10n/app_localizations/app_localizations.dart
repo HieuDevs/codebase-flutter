@@ -109,6 +109,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Cancel'**
   String get cancel;
+
+  /// No description provided for @startPractice.
+  ///
+  /// In en, this message translates to:
+  /// **'Start Practice'**
+  String get startPractice;
+
+  /// No description provided for @reviewLesson.
+  ///
+  /// In en, this message translates to:
+  /// **'Review Lesson'**
+  String get reviewLesson;
 }
 
 class _AppLocalizationsDelegate

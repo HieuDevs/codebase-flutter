@@ -1,7 +1,7 @@
-import 'package:codebase/core/logger/log_config.dart';
-import 'package:codebase/core/logger/log_file_writer.dart';
-import 'package:codebase/core/logger/log_formatter.dart';
-import 'package:codebase/core/logger/log_level.dart';
+import 'package:lua/core/logger/log_config.dart';
+import 'package:lua/core/logger/log_file_writer.dart';
+import 'package:lua/core/logger/log_formatter.dart';
+import 'package:lua/core/logger/log_level.dart';
 import 'package:flutter/foundation.dart';
 
 class AppLogger {
